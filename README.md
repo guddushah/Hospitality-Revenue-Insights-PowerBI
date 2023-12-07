@@ -61,9 +61,9 @@ Here is a list of performance metrics used in the hospitality industry.
     - It refers to the number of customers bookings received against customers actually stayed 
     - Realisation = URN / BRN
 10. *Avg Rating* – Average rating is the average rating given by a customer per booking.
-11. *Day Type* – Day is the category of days in a week. Weekday and Weekend.
+11. *Day Type* – Day is the category of days in a week. Weekday and Weekend. Based on the feedback from stakeholder, we considered Friday and Saturday as weekend and weekdays from Sunday to Thurdsay.
 12. *Booking Platforms* – Booking platforms are the modes that are used by customers to book rooms. These include AtliQ’s own booking platform and third-party platforms as well.
-13. *Week Number* – Week number is the number of weeks in a year.
+13. *Week Number* – Week number is the number of weeks in a year. 
 14. *WoW* – Week on Week is the metric to compare the performance change over the week.
 
 ### Filters Used
@@ -77,12 +77,24 @@ Here is a list of performance metrics used in the hospitality industry.
 ### Mock-up Dashboard
 ![mock up dashboard_atliq grands](https://github.com/guddushah/Hospitality-Revenue-Insights-PowerBI/assets/40028193/b3b98f28-d005-4a32-936d-df907014fd36)
 
-#### Steps taken to build Dashboard
+### Steps taken to build Dashboard
 - Imported all the data in Power BI
 - Performed Data Transformation using Power Query
 - Then, established relationship between the tables, obtained STAR Schema in Data Model View.
 - Created calculated columns and measures using DAX (Data Analysis Expression)
 - Started building Dashboard
+
+### Data Transformation
+
+#### Created calculated columns in dim_date table
+1. Used DAX formula to derive week number from the corresponding date       
+- wn = WEEKNUM(dim_date[date])
+2. Used DAX formula to derive day type          
+- day type =           
+ Var wkd = WEEKDAY(dim_date[date],1)        
+ return     
+ IF(     
+  wkd>5,"Weekend","Weekday")     
 
 ### Data Model Created
 
@@ -99,6 +111,7 @@ https://app.powerbi.com/view?r=eyJrIjoiNjZiYTFiMmEtOTNlYy00NjU0LTliNmYtMmM0NWE1N
 Using all the information and data provided by the stakeholders, I analyzed and created this report. This report shows metrics that will help solve the problems faced by AtliQ Grands’s management in generating good revenue.
 
 ### Key Insights obtained from the Dashboard
+
 
 
 
