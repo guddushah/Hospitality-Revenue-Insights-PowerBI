@@ -84,11 +84,11 @@ Here is a list of performance metrics used in the hospitality industry.
 - Created calculated columns and measures using DAX (Data Analysis Expression)
 - Started building Dashboard
 
-#### Data Model Created
+### Data Model Created
 
 ![model](https://github.com/guddushah/Hospitality-Revenue-Insights-PowerBI/assets/40028193/5ee1946e-7e9d-4e9e-b51d-3967b14b3a30)
 
-#### Dashboard Created
+### Dashboard Created
 
 ![pic1](https://github.com/guddushah/Hospitality-Revenue-Insights-PowerBI/assets/40028193/a22cb69c-989e-4c50-919d-ccd52d46502e)
 
@@ -98,13 +98,7 @@ https://app.powerbi.com/view?r=eyJrIjoiNjZiYTFiMmEtOTNlYy00NjU0LTliNmYtMmM0NWE1N
 
 Using all the information and data provided by the stakeholders, I analyzed and created this report. This report shows metrics that will help solve the problems faced by AtliQ Grands’s management in generating good revenue.
 
-
-
-
-
-
-
-#### Key Insights obtained from the Dashboard
+### Key Insights obtained from the Dashboard
 
 
 
