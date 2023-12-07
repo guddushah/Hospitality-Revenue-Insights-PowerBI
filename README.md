@@ -13,7 +13,7 @@ You are a data analyst who has been provided with sample data and a mock-up dash
 - Create relevant insights that are not provided in the metric list/mock-up dashboard
 
 ## About AtliQ Grands
-#### Some good-to-know stats before starting the visualisation.
+#### Some good-to-know stats before starting the building dashboard.
 - AtliQ Grands is a five stars hotel chain is operating in 4 cities (Hyderabad, Mumbai, Banglore, Delhi).
 - It has 7 properties with branches across these 4 cities.
 - The rooms in these properties are categorized into 4 types: Elite, Premium, Presidential, & Standard.
@@ -51,22 +51,38 @@ Here is a list of performance metrics used in the hospitality industry.
    - SRN is the metric used for available rooms that can be sold. Example: If there are 100 rooms in a hotel and 20 rooms are not available for any XYZ reason, the SRN here is 80.
 4. *DSRN* (Daily Sellable Room Nights)
 5. *URN* (Utilized Room Nights)
+   -URN are the nights utilized by the customers. This can be the checked-in nights. It is considered when the customer ends-up staying.
 6. *DURN* (Daily Utilized Room Nights)
 7. *BRN* (Booked Room Nights)
+    - It is the sum of URN, Cancellation and customers who didn't stay even after bookings.
     - BRN = URN + Cancellation + No Show
 8. *DBRN* (Daily Booked Room Nights)
 9. *Realisation*
+    - It refers to the number of customers bookings received against customers actually stayed 
     - Realisation = URN / BRN
+10. *Avg Rating* – Average rating is the average rating given by a customer per booking.
+11. *Day Type* – Day is the category of days in a week. Weekday and Weekend.
+12. *Booking Platforms* – Booking platforms are the modes that are used by customers to book rooms. These include AtliQ’s own booking platform and third-party platforms as well.
+13. *Week Number* – Week number is the number of weeks in a year.
+14. *WoW* – Week on Week is the metric to compare the performance change over the week.
+
+### Filters Used
+1. **Filter by Properties** - Looking into properties or room class can drill down the problems and challenges faced by hotels. Example: Ratings will help in improving the standards of the room. Availability will help in providing more rooms with the category in high demand.
+2. **Filter by City** - This filter helps in knowing the market value of AtilQ.
+3. **Filter by Status** - This helps in knowing the revenues generated from the customers who actually checked in.
+4. **Filter by Platforms** - Choosing booking platforms provides insights to the marketing team to target accordingly. Also, improving AtliQ’s own platforms for generating direct revenue.
+5. **Filter by Month** - To measure monthly performance.
+6. **Filter by Week** - To view each week’s performance.
+
 ### Mock-up Dashboard
 ![mock up dashboard_atliq grands](https://github.com/guddushah/Hospitality-Revenue-Insights-PowerBI/assets/40028193/b3b98f28-d005-4a32-936d-df907014fd36)
 
-
-#### Steps for building the Dashboard
+#### Steps taken to build Dashboard
 - Imported all the data in Power BI
 - Performed Data Transformation using Power Query
 - Then, established relationship between the tables, obtained STAR Schema in Data Model View.
 - Created calculated columns and measures using DAX (Data Analysis Expression)
-- Started creating Dashboard
+- Started building Dashboard
 
 #### Data Model Created
 
