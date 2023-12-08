@@ -146,9 +146,11 @@ Using all the information and data provided by the stakeholders, I analyzed and 
 - Booking % by Room class = DIVIDE([Total Bookings],                
   CALCULATE([Total Bookings],               
   ALL(dim_rooms[room_class])             
-  ))*100                                   
-15.**ADR**
+  ))*100
+  
+15. **ADR**
 - ADR = DIVIDE( [Revenue], [Total Bookings],0)
+
 16.**Realisation %**
 - Realisation % = 1- ([Cancellation %]+[No Show rate %])
 17. **RevPAR**
@@ -194,7 +196,7 @@ var revcw = CALCULATE([Realisation %],dim_date[wn]= selv)
 var revpw =  CALCULATE([Realisation %],FILTER(ALL(dim_date),dim_date[wn]= selv-1))                       
 return                     
 DIVIDE(revcw,revpw,0)-1                        
-17. **DSRN WoW change %**
+26. **DSRN WoW change %**
 - DSRN WoW change % =                        
 Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))                     
 var revcw = CALCULATE([DSRN],dim_date[wn]= selv)                        
