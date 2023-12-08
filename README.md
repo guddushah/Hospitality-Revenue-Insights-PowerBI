@@ -107,46 +107,101 @@ Here is a list of performance metrics used in the hospitality industry.
 ![pic2](https://github.com/guddushah/Hospitality-Revenue-Insights-PowerBI/assets/40028193/6ec77722-a31f-4ff7-8c5e-9ad654c6704f)
 
 #### View Dashboard here 
-https://app.powerbi.com/viewr=eyJrIjoiNjZiYTFiMmEtOTNlYy00NjU0LTliNmYtMmM0NWE1N2ZhMTQ3IiwidCI6Ijc5OWU3OTRjLTllYWMtNGUxZi05ZjY0LTE0ODhjYjMyMjRlNiJ9&pageName=ReportSectiondc8143957199bb15912d
+https://app.powerbi.com/view?r=eyJrIjoiNjZiYTFiMmEtOTNlYy00NjU0LTliNmYtMmM0NWE1N2ZhMTQ3IiwidCI6Ijc5OWU3OTRjLTllYWMtNGUxZi05ZjY0LTE0ODhjYjMyMjRlNiJ9&pageName=ReportSectiondc8143957199bb15912d
 
 Using all the information and data provided by the stakeholders, I analyzed and created this report. This report shows metrics that will help solve the problems faced by AtliQ Grands’s management in generating good revenue.
 
 ### Key Insights obtained from the Dashboard
 
 ### Key Measures Created
-1. **Revenue** - To get the total revenue_realized
+1. **Revenue**
 - Revenue = SUM(fact_bookings[revenue_realized])
-2. **Total Bookings** - To get the total number of bookings happened
+2. **Total Bookings**
 - Total Bookings = COUNT(fact_bookings[booking_id])
-3. **Total Capacity** - To get the total capacity of rooms present in hotels
+3. **Total Capacity**
 - Total Capacity = SUM(fact_aggregated_bookings[capacity])
-4. **Total Succesful Bookings** - To get the total succesful bookings happened for all hotels
+4. **Total Succesful Bookings**
 - Total Succesful Bookings = SUM(fact_aggregated_bookings[successful_bookings])
-5. **Occupancy %** - Occupancy means total successful bookings happened to the total rooms available(capacity)
+5. **Occupancy %**
 - Occupancy % = DIVIDE([Total Succesful Bookings],[Total Capacity],0)
-6. **Average Rating** - Get the average ratings given by the customers
+6. **Average Rating**
 - Average Rating = AVERAGE(fact_bookings[ratings_given])
-7. **No of days** - To get the total number of days present in the data. In our case, we have data from May to July. So 92 days.
+7. **No of days**.
 - No of days = DATEDIFF(MIN(dim_date[date]),MAX(dim_date[date]),DAY) +1
-8. **Total cancelled bookings** - To get the"Cancelled" bookings out of all Total bookings happened.
+8. **Total cancelled bookings**
 - Total cancelled bookings = CALCULATE([Total Bookings],fact_bookings[booking_status]="Cancelled")
-9. **Cancellation %** - Calculating the cancellaton percentage.
+9. **Cancellation %**
 - Cancellation % = DIVIDE([Total cancelled bookings],[Total Bookings])
-10. **Total Checked Out** - To get the successful 'Checked out' bookings out of all Total bookings happened.
+10. **Total Checked Out**
 - Total Checked Out = CALCULATE([Total Bookings],fact_bookings[booking_status]="Checked Out")
-11. **Total no show bookings** - To get the"No Show" bookings out of all Total bookings happened("No show" means those customers who neither cancelled nor attend to their booked rooms)
+11. **Total no show bookings**
 - Total no show bookings = CALCULATE([Total Bookings],fact_bookings[booking_status]="No Show")
-12. **No Show rate %** - calculating the no show percentage.
+12. **No Show rate %**
 - No Show rate % = DIVIDE([Total no show bookings],[Total Bookings])
-13. **Booking % by Platform** - To show the percentage contribution of each booking platform for bookings in hotels.
+13. **Booking % by Platform**
 - Booking % by Platform = DIVIDE([Total Bookings],               
   CALCULATE([Total Bookings],               
   ALL(fact_bookings[booking_platform])))*100
-14. **Booking % by Room class** - To show the percentage contribution of each room class over total rooms booked.
+14. **Booking % by Room class**
 - Booking % by Room class = DIVIDE([Total Bookings],                
   CALCULATE([Total Bookings],               
   ALL(dim_rooms[room_class])             
-  ))*100               
+  ))*100
+15.**ADR**
+- ADR = DIVIDE( [Revenue], [Total Bookings],0)
+16.**Realisation %**
+- Realisation % = 1- ([Cancellation %]+[No Show rate %])
+17. **RevPAR**
+- RevPAR = DIVIDE([Revenue],[Total Capacity])
+18. **DBRN**
+- DBRN = DIVIDE([Total Bookings], [No of days])
+19. **DSRN**
+- DSRN = DIVIDE([Total Capacity], [No of days])
+20. **DURN**
+- DURN = DIVIDE([Total Checked Out],[No of days])
+21. **Revenue WoW change %**
+- Revenue WoW change % =                  
+Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))               
+var revcw = CALCULATE([Revenue],dim_date[wn]= selv)            
+var revpw =  CALCULATE([Revenue],FILTER(ALL(dim_date),dim_date[wn]= selv-1))               
+return             
+DIVIDE(revcw,revpw,0)-1                   
+22. **Occupancy WoW change %**
+- Occupancy WoW change % =                            
+Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))                       
+var revcw = CALCULATE([Occupancy %],dim_date[wn]= selv)                         
+var revpw =  CALCULATE([Occupancy %],FILTER(ALL(dim_date),dim_date[wn]= selv-1))                    
+return             
+DIVIDE(revcw,revpw,0)-1           
+23. **ADR WoW change %**
+- ADR WoW change % =                       
+Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))                      
+var revcw = CALCULATE([ADR],dim_date[wn]= selv)                  
+var revpw =  CALCULATE([ADR],FILTER(ALL(dim_date),dim_date[wn]= selv-1))                   
+return                 
+DIVIDE(revcw,revpw,0)-1                 
+24. **Revpar WoW change %**
+- Revpar WoW change % =                   
+Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))                   
+var revcw = CALCULATE([RevPAR],dim_date[wn]= selv)                 
+var revpw =  CALCULATE([RevPAR],FILTER(ALL(dim_date),dim_date[wn]= selv-1))                         
+return                
+DIVIDE(revcw,revpw,0)-1                   
+25. **Realisation WoW change %**
+- Realisation WoW change % =                            
+Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))                     
+var revcw = CALCULATE([Realisation %],dim_date[wn]= selv)                           
+var revpw =  CALCULATE([Realisation %],FILTER(ALL(dim_date),dim_date[wn]= selv-1))                       
+return                     
+DIVIDE(revcw,revpw,0)-1                        
+17. **DSRN WoW change %**
+- DSRN WoW change % =                        
+Var selv = IF(HASONEFILTER(dim_date[wn]),SELECTEDVALUE(dim_date[wn]),MAX(dim_date[wn]))                     
+var revcw = CALCULATE([DSRN],dim_date[wn]= selv)                        
+var revpw =  CALCULATE([DSRN],FILTER(ALL(dim_date),dim_date[wn]= selv-1))                       
+return                    
+DIVIDE(revcw,revpw,0)-1                    
+
 
 
 
