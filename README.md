@@ -114,33 +114,38 @@ Using all the information and data provided by the stakeholders, I analyzed and 
 
 ### Key Measures Created
 1. **Revenue** - To get the total revenue_realized
-   - Revenue = SUM(fact_bookings[revenue_realized])
+- Revenue = SUM(fact_bookings[revenue_realized])
 2. **Total Bookings** - To get the total number of bookings happened
-   - Total Bookings = COUNT(fact_bookings[booking_id])
+- Total Bookings = COUNT(fact_bookings[booking_id])
 3. **Total Capacity** - To get the total capacity of rooms present in hotels
-   - Total Capacity = SUM(fact_aggregated_bookings[capacity])
+- Total Capacity = SUM(fact_aggregated_bookings[capacity])
 4. **Total Succesful Bookings** - To get the total succesful bookings happened for all hotels
-   - Total Succesful Bookings = SUM(fact_aggregated_bookings[successful_bookings])
+- Total Succesful Bookings = SUM(fact_aggregated_bookings[successful_bookings])
 5. **Occupancy %** - Occupancy means total successful bookings happened to the total rooms available(capacity)
-   - Occupancy % = DIVIDE([Total Succesful Bookings],[Total Capacity],0)
+- Occupancy % = DIVIDE([Total Succesful Bookings],[Total Capacity],0)
 6. **Average Rating** - Get the average ratings given by the customers
-   - Average Rating = AVERAGE(fact_bookings[ratings_given])
+- Average Rating = AVERAGE(fact_bookings[ratings_given])
 7. **No of days** - To get the total number of days present in the data. In our case, we have data from May to July. So 92 days.
-   - No of days = DATEDIFF(MIN(dim_date[date]),MAX(dim_date[date]),DAY) +1
+- No of days = DATEDIFF(MIN(dim_date[date]),MAX(dim_date[date]),DAY) +1
 8. **Total cancelled bookings** - To get the"Cancelled" bookings out of all Total bookings happened.
-   - Total cancelled bookings = CALCULATE([Total Bookings],fact_bookings[booking_status]="Cancelled")
+- Total cancelled bookings = CALCULATE([Total Bookings],fact_bookings[booking_status]="Cancelled")
 9. **Cancellation %** - Calculating the cancellaton percentage.
-   - Cancellation % = DIVIDE([Total cancelled bookings],[Total Bookings])
+- Cancellation % = DIVIDE([Total cancelled bookings],[Total Bookings])
 10. **Total Checked Out** - To get the successful 'Checked out' bookings out of all Total bookings happened.
-   - Total Checked Out = CALCULATE([Total Bookings],fact_bookings[booking_status]="Checked Out")
+- Total Checked Out = CALCULATE([Total Bookings],fact_bookings[booking_status]="Checked Out")
 11. **Total no show bookings** - To get the"No Show" bookings out of all Total bookings happened("No show" means those customers who neither cancelled nor attend to their booked rooms)
-   - Total no show bookings = CALCULATE([Total Bookings],fact_bookings[booking_status]="No Show")
+- Total no show bookings = CALCULATE([Total Bookings],fact_bookings[booking_status]="No Show")
 12. **No Show rate %** - calculating the no show percentage.
-   - No Show rate % = DIVIDE([Total no show bookings],[Total Bookings])
+- No Show rate % = DIVIDE([Total no show bookings],[Total Bookings])
 13. **Booking % by Platform** - To show the percentage contribution of each booking platform for bookings in hotels.
-   - Booking % by Platform = DIVIDE([Total Bookings],               
-    CALCULATE([Total Bookings],               
-    ALL(fact_bookings[booking_platform])))*100           
+- Booking % by Platform = DIVIDE([Total Bookings],               
+  CALCULATE([Total Bookings],               
+  ALL(fact_bookings[booking_platform])))*100
+14. **Booking % by Room class** - To show the percentage contribution of each room class over total rooms booked.
+- Booking % by Room class = DIVIDE([Total Bookings],                
+  CALCULATE([Total Bookings],               
+  ALL(dim_rooms[room_class])             
+  ))*100               
 
 
 
