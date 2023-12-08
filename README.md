@@ -116,6 +116,7 @@ Using all the information and data provided by the stakeholders, I analyzed and 
 
 ### Key Insights obtained from the Dashboard
 
+
 ### Key Measures Created
 1. **Revenue**
 - Revenue = SUM(fact_bookings[revenue_realized])
