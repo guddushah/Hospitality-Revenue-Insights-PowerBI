@@ -129,6 +129,18 @@ Using all the information and data provided by the stakeholders, I analyzed and 
    - No of days = DATEDIFF(MIN(dim_date[date]),MAX(dim_date[date]),DAY) +1
 8. **Total cancelled bookings** - To get the"Cancelled" bookings out of all Total bookings happened.
    - Total cancelled bookings = CALCULATE([Total Bookings],fact_bookings[booking_status]="Cancelled")
+9. **Cancellation %** - Calculating the cancellaton percentage.
+   - Cancellation % = DIVIDE([Total cancelled bookings],[Total Bookings])
+10. **Total Checked Out** - To get the successful 'Checked out' bookings out of all Total bookings happened.
+   - Total Checked Out = CALCULATE([Total Bookings],fact_bookings[booking_status]="Checked Out")
+11. **Total no show bookings** - To get the"No Show" bookings out of all Total bookings happened("No show" means those customers who neither cancelled nor attend to their booked rooms)
+   - Total no show bookings = CALCULATE([Total Bookings],fact_bookings[booking_status]="No Show")
+12. **No Show rate %** - calculating the no show percentage.
+   - No Show rate % = DIVIDE([Total no show bookings],[Total Bookings])
+13. **Booking % by Platform** - To show the percentage contribution of each booking platform for bookings in hotels.
+   - Booking % by Platform = DIVIDE([Total Bookings],               
+    CALCULATE([Total Bookings],               
+    ALL(fact_bookings[booking_platform])))*100           
 
 
 
