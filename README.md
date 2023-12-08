@@ -141,12 +141,12 @@ Using all the information and data provided by the stakeholders, I analyzed and 
 13. **Booking % by Platform**
 - Booking % by Platform = DIVIDE([Total Bookings],               
   CALCULATE([Total Bookings],               
-  ALL(fact_bookings[booking_platform])))*100
+  ALL(fact_bookings[booking_platform])))*100                                    
 14. **Booking % by Room class**
 - Booking % by Room class = DIVIDE([Total Bookings],                
   CALCULATE([Total Bookings],               
   ALL(dim_rooms[room_class])             
-  ))*100
+  ))*100                                   
 15.**ADR**
 - ADR = DIVIDE( [Revenue], [Total Bookings],0)
 16.**Realisation %**
