@@ -115,6 +115,20 @@ Using all the information and data provided by the stakeholders, I analyzed and 
 ### Key Measures Created
 1. **Revenue** - To get the total revenue_realized
    - Revenue = SUM(fact_bookings[revenue_realized])
+2. **Total Bookings** - To get the total number of bookings happened
+   - Total Bookings = COUNT(fact_bookings[booking_id])
+3. **Total Capacity** - To get the total capacity of rooms present in hotels
+   - Total Capacity = SUM(fact_aggregated_bookings[capacity])
+4. **Total Succesful Bookings** - To get the total succesful bookings happened for all hotels
+   - Total Succesful Bookings = SUM(fact_aggregated_bookings[successful_bookings])
+5. **Occupancy %** - Occupancy means total successful bookings happened to the total rooms available(capacity)
+   - Occupancy % = DIVIDE([Total Succesful Bookings],[Total Capacity],0)
+6. **Average Rating** - Get the average ratings given by the customers
+   - Average Rating = AVERAGE(fact_bookings[ratings_given])
+7. **No of days** - To get the total number of days present in the data. In our case, we have data from May to July. So 92 days.
+   - No of days = DATEDIFF(MIN(dim_date[date]),MAX(dim_date[date]),DAY) +1
+8. **Total cancelled bookings** - To get the"Cancelled" bookings out of all Total bookings happened.
+   - Total cancelled bookings = CALCULATE([Total Bookings],fact_bookings[booking_status]="Cancelled")
 
 
 
