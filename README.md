@@ -114,9 +114,22 @@ https://app.powerbi.com/view?r=eyJrIjoiNjZiYTFiMmEtOTNlYy00NjU0LTliNmYtMmM0NWE1N
 
 Using all the information and data provided by the stakeholders, I analyzed and created this report. This report shows metrics that will help solve the problems faced by AtliQ Grands’s management in generating good revenue.
 
-### Key Insights obtained from the Dashboard
+## Key Insights obtained from the Dashboard
+#### 1. Insight by Room Class
+- **Revenue** - Highest Revenue (Elite Rooms -- 553.7 M), Lowest Revenue (Standard -- 305.6 M)
+- **RevPAR** - Highest RevPAR (Presidental Rooms -- 13.8 K), Lowest RevPAR (Standard Rooms -- 4.6 K)
+- **ADR** - Highest ADR (Presidental Rooms -- 23.4 K), Lowest ADR (Standard -- 8 K)
 
+#### 2. Insight by Property Name
+- **Revenue** - Highest Revenue (AtliQ Exotica -- 316 M), Lowest Revenue (AtliQ Seassons -- 65 M)
+- **RevPAR** - Highest RevPAR (AtliQ Exotica -- 7.8 K), Lowest RevPAR (AtliQ Grands -- 6.5 K)
+- **ADR** - Highest ADR (AtliQ Seassons -- 16.5 K), Lowest ADR (AtliQ Blu -- 11.9 K)
 
+#### 2. Insight by Property Name
+- **Revenue** - Highest Revenue (Mumbai -- 660.6 M), Lowest Revenue (Delhi -- 290.9 M)
+- **RevPAR** - Highest RevPAR (Mumbai -- 8.89 K), Lowest RevPAR (Bangalore -- 7.3 K)
+- **ADR** - Highest ADR (Mumbai -- 15.3 K), Lowest ADR (Hyderabad -- 9.32 K)
+  
 ### Key Measures Created
 1. **Revenue**
 - Revenue = SUM(fact_bookings[revenue_realized])
