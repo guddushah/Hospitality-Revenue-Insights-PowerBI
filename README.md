@@ -113,7 +113,8 @@ Using all the information and data provided by the stakeholders, I analyzed and 
 ### Key Insights obtained from the Dashboard
 
 ### Key Measures Created
-
+1. **Revenue** - To get the total revenue_realized
+   - Revenue = SUM(fact_bookings[revenue_realized])
 
 
 
