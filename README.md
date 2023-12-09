@@ -125,7 +125,7 @@ Using all the information and data provided by the stakeholders, I analyzed and 
 - **RevPAR** - Highest RevPAR (AtliQ Exotica -- 7.8 K), Lowest RevPAR (AtliQ Grands -- 6.5 K)
 - **ADR** - Highest ADR (AtliQ Seassons -- 16.5 K), Lowest ADR (AtliQ Blu -- 11.9 K)
 
-#### 2. Insight by Property Name
+#### 2. Insight by City
 - **Revenue** - Highest Revenue (Mumbai -- 660.6 M), Lowest Revenue (Delhi -- 290.9 M)
 - **RevPAR** - Highest RevPAR (Mumbai -- 8.89 K), Lowest RevPAR (Bangalore -- 7.3 K)
 - **ADR** - Highest ADR (Mumbai -- 15.3 K), Lowest ADR (Hyderabad -- 9.32 K)
